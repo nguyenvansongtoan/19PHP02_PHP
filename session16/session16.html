@@ -1,0 +1,33 @@
+// Bai 1
+SELECT *FROM products 
+      INNER JOIN categories ON categories.categoryID = products.categoryID
+WHERE categories.categoryName = 'Guitars' 
+AND products.listPrice > 300 AND products.productName LIKE '%o%' 
+ORDER BY listPrice DESC
+//Bai 2
+SELECT * FROM products 
+INNER JOIN categories ON categories.categoryID = products.categoryID
+WHERE products.dateAdded >= '2014-07-01' AND products.dateAdded <= '2014-07-31' AND categories.categoryName = 'Guitars' AND products.listPrice > 400
+ORDER BY productName DESC
+//Bai 3
+SELECT * FROM `products` 
+INNER JOIN orderitems ON products.productID = orderitems.productID 
+INNER JOIN orders ON orders.orderID = orderitems.orderID 
+INNER JOIN customers ON customers.customerID = orders.customerID
+WHERE customers.emailAddress LIKE '%@gmail.com'
+ORDER BY products.productName
+  
+//sua?
+SELECT * FROM addresses
+INNER JOIN customers ON customers.customerID = addresses.addressID
+INNER JOIN orders ON orders.customerID = addresses.customerID
+INNER JOIN orderitems ON orderitems.orderID = orders.orderID
+INNER JOIN products ON products.productID = orderitems.productID
+WHERE customers.emailAddress LIKE '%@gmail.com'
+//bai 4
+SELECT DISTINCT addresses.city FROM addresses
+INNER JOIN customers ON customers.customerID = addresses.addressID
+INNER JOIN orders ON orders.customerID = addresses.customerID
+INNER JOIN orderitems ON orderitems.orderID = orders.orderID
+INNER JOIN products ON products.productID = orderitems.productID
+WHERE customers.emailAddress LIKE '%@gmail.com'
