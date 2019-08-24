@@ -44,9 +44,10 @@
 							$image = $_FILES['image']['name'];
 						}
 						if ($backModel->add($name, $price, $image) === TRUE) {
-							$pathUpload = 'webroot/uploads/products/';
+							$pathUpload = 'webroot/uploads/products/ ';
 							move_uploaded_file($_FILES['image']['tmp_name'], $pathUpload.$image);
 							$libs->redirectPage('admin.php?controller=products&action=list_product');
+							
 						}
 					}
 					include 'view/products/add.php';
@@ -60,6 +61,27 @@
 					# code...
 					break;
 			}
+		}
+		function handleDashboard($action, $backModel, $libs) {
+
+		}
+		function handleComments($action, $backModel, $libs) {
+			switch ($action) {
+					case 'list_comment':
+						$listComment = $backModel->getCommentList();
+						include 'view/comments/list_comment.php';
+						break;
+					case 'approve':
+						$id = $_GET['id'];
+						if ($backModel->approveComment($id) === TRUE) {
+							$libs->redirectPage('admin.php?controller=comments&action=list_comment');
+						}
+						# code...
+						break;
+					default:
+						# code...
+						break;
+				}	
 		}
   }
 ?>

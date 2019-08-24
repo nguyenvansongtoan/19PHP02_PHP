@@ -1,0 +1,56 @@
+#nav {
+	height: 100px;
+}
+ul li {
+	list-style: none;
+	float: left;
+	width: 100px;
+	border: 1px solid black;
+	padding: 5px 10px;
+	margin: 10px;
+	text-align: center;
+}
+ul li a {
+	text-decoration: none;
+	font-weight: bold;
+}
+li.logout {
+	width: 150px;
+}
+li.active {
+	background-color: green;
+}
+li.active a {
+	color: #fff;
+}
+.error {
+	color: red;
+}
+.list_product {
+	width: 90%;
+	margin: 0 auto;
+}
+.product_detail {
+	width: 45%;
+	float: left;
+}
+.product_detail img, .product_detail_full img {
+	width: 150px;
+}
+.product_detail_full {
+	width: 100%;
+}
+.comment_content, .comment_list, .rate, .like {
+	width: 90%;
+	margin: 15px auto;
+}
+.comment_author, .comment_time {
+	margin: 10px 0;
+	color: red;
+}
+.comment_detail {
+	border-bottom: 1px dotted black;
+}
+.star_rate div img {
+	width: 20px;
+}
